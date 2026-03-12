@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "patient-management-api",
+		"name": "Patient Management System API",
+		"description": "Complete API collection for patient management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register New Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phoneNumber\": \"+1234567890\",\n  \"age\": 35,\n  \"gender\": \"Male\",\n  \"disease\": \"Hypertension\",\n  \"doctorAssigned\": \"Dr. Smith\",\n  \"roomNumber\": \"101A\",\n  \"patientType\": \"Inpatient\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/patients",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/patients",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/patients/{{patientId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients",
+						"{{patientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patient Details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"age\": 36,\n  \"status\": \"Discharged\",\n  \"roomNumber\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/patients/{{patientId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients",
+						"{{patientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient Record",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/patients/{{patientId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients",
+						"{{patientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Patients by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/patients/search?name=John",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Patients by Disease",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/patients/search?disease=Hypertension",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"patients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "disease",
+							"value": "Hypertension"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "patientId",
+			"value": "60d5ecb74b24a1234567890"
+		}
+	]
+}
